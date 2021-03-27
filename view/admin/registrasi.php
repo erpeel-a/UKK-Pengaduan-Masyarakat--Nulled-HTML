@@ -25,7 +25,7 @@ Registrasi
   </div>
   <div>
     <label for="telephone">Telephone</label>
-    <input type="text" id="telephone" placeholder="08xxxxxxxx." required name="telephone" autofocus> <br>
+    <input type="number" id="telephone" placeholder="08xxxxxxxx." required name="telephone" autofocus> <br>
   </div>
   <div>
     <label for="">Role</label>
