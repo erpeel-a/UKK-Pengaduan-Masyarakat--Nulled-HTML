@@ -48,7 +48,7 @@ function PetugasRegister($data){
     return false;
   }
   // Insert ke dalam database
-  $execute = mysqli_query($conn,"INSERT INTO petugas VALUES('','$namapetugas','$username','$password','$telp','$level')");
+  $execute = mysqli_query($conn,"INSERT INTO petugas VALUES(null,'$namapetugas','$username','$password','$telp','$level')");
   header('location:index.php'); // alihkan ke index page
 
 }
