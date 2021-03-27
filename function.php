@@ -91,7 +91,6 @@ function InputPengaduan($nik,$data){
   mysqli_query($conn,"INSERT INTO pengaduan(tgl_pengaduan,nik,isi_laporan,foto,status) VALUES('$tanggal','$nik','$isi','$gambar','$status')"); // melakukan query insert ke database
   echo "<script> 
     alert('Data Pengaduan berhasil di kirim');
-  window.location.reload()
   </script>";
   // tampilakn alert dan reload halaman
 }
