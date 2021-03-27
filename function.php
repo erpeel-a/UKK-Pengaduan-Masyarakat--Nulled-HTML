@@ -1,6 +1,6 @@
 <?php
 
-// mendefinisikan konstanta site url untuk digunakan untuk meng-load asset (image, css, atau file js)
+// mendefinisikan konstanta site url digunakan untuk meng-load asset (image, css, atau file js)
 define('site_url', 'http://localhost/UKK-Pengaduan-Masyarakat--Nulled-HTML/'); // alamat web, ganti sesuai alamat web masing-masing
 
 // fungsi yang di gunakan untuk membuat koneksi ke database
