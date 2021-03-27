@@ -27,7 +27,6 @@ $laporan = FetchAllData("SELECT * FROM tanggapan INNER JOIN pengaduan ON tanggap
                 <th>foto</th>
                 <th>tgl_tanggapan</th>
                 <th>Tanggapan</th>
-                <th>Aksi</th>
               </tr>
             </thead>
             <tbody>
@@ -38,9 +37,6 @@ $laporan = FetchAllData("SELECT * FROM tanggapan INNER JOIN pengaduan ON tanggap
                 <td><img src="<?= site_url ?>/img/<?= $data['foto'] ;?>" width="200px" alt=""></td>
                 <td><?= $data['tgl_pengaduan'];?></td>
                 <td><?= $data['tanggapan'];?></td>
-                <td>  
-                  
-                </td>
               </tr>
               <?php endforeach ;?>
             </tbody>
