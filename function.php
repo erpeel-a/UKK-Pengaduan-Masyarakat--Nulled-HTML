@@ -1,7 +1,7 @@
 <?php
 
 // mendefinisikan konstanta site url digunakan untuk meng-load asset (image, css, atau file js)
-define('site_url', 'http://localhost/UKK-Pengaduan-Masyarakat--Nulled-HTML/'); // alamat web, ganti sesuai alamat web masing-masing
+define('site_url', 'http://localhost/UKK-Pengaduan-Masyarakat--Nulled-HTML'); // alamat web, ganti sesuai alamat web masing-masing
 
 // fungsi yang di gunakan untuk membuat koneksi ke database
 function DBConnection(){
@@ -49,8 +49,7 @@ function PetugasRegister($data){
   }
   // Insert ke dalam database
   $execute = mysqli_query($conn,"INSERT INTO petugas VALUES(null,'$namapetugas','$username','$password','$telp','$level')");
-  header('location:index.php'); // alihkan ke index page
-
+  return mysqli_affected_rows($conn); // affected rows berfungsi untuk mengecek apakah ada baris yang berubah di database
 }
 
 function MasyarakatRegister($data){
@@ -73,8 +72,7 @@ function MasyarakatRegister($data){
     echo "<script> alert('Kombinasi password tidak sama, silahkan coba lagi')</script>";
   }
   $execute = mysqli_query($conn,"INSERT INTO masyarakat(nik,nama,username,password,telp) VALUES('$nik','$nama','$username','$password','$telephone')"); // melakukan query ke database
-  header('location:index.php'); // alihkan ke index page
-
+  return mysqli_affected_rows($conn);// affected rows berfungsi untuk mengecek apakah ada baris yang berubah di database
 }
 
 
@@ -89,9 +87,9 @@ function InputPengaduan($nik,$data){
   $status = '0';
   $gambar = upload(); // panggil fungsi upload()
   mysqli_query($conn,"INSERT INTO pengaduan(tgl_pengaduan,nik,isi_laporan,foto,status) VALUES('$tanggal','$nik','$isi','$gambar','$status')"); // melakukan query insert ke database
+  return mysqli_affected_rows($conn);
   echo "<script> 
     alert('Data Pengaduan berhasil di kirim');
-  window.location.reload()
   </script>";
   // tampilakn alert dan reload halaman
 }

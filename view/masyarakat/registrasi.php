@@ -3,7 +3,9 @@ require '../../function.php'; // menyisipkan file function.php agar bisa digunak
 $conn = DBConnection(); // panggil function DBConnection dan masukkan ke dalam vaiable $conn
 if(isset($_POST['submit'])){ // chek apakah form sudah di submit
   if(MasyarakatRegister($_POST) > 0 ){ // masukkan data dari $_POST ke fungsi MasyarakatRegister (yang ada di file function) dan check jika data masuk / lebih dari 0
-      header('Location:../../index.php'); // alihkan ke index page
+    echo "<script>
+        alert('Registrasi berhasil');
+      </script>";
   }else{
     echo mysqli_error($conn); // jika error tampilkan error
   }
@@ -18,7 +20,7 @@ require('../layouts/header.php'); // menyisipkan file header.php
       <input type="text" id="username" placeholder="username." required name="username" autofocus> <br>
 
       <label for="nik" >nik</label>
-      <input type="number" id="nama" placeholder="xxxxx" size="16" max="16" name="nik"required autofocus><br>
+      <input type="number" id="nama" placeholder="xxxxx" name="nik"required autofocus><br>
 
       <label for="telephone" >telp</label>
       <input type="number" id="telephone" placeholder="08xxxxxxx" required name="telephone" autofocus><br>

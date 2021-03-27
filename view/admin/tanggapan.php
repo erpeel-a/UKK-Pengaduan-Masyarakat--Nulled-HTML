@@ -25,7 +25,7 @@ if(isset($_POST['submit'])){ // check jika tombol di submit
   // cek jika kudua aksi tersebut berhasil 
   if($execute_update_pengaduan && $execute_add_tanggapan){
     echo "<script>
-    alert('Tanggapan Berhasil Dikkirim');
+    alert('Tanggapan Berhasil Dikirim');
         window.location.href = 'pengaduan.php'
     </script>";
     //tampilkan alert dan redirect ke halaman pengaduan.php

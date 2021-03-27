@@ -9,6 +9,9 @@ if(!isset($_SESSION['login'])){ // check jika user belum login
 if(isset($_POST['submit'])){ // check jika form sudah disubmit
   $nik = $_SESSION['nik']; // tanggap nik dari session dan masukkan ke variable $nik
   InputPengaduan($nik,$_POST); // jalankan fungsi InputPengaduan yang ada di file function.php dengan mengirimkan nik dan $_POST sebagai parameter 
+  echo "<script>
+        alert('Data pengaduan berhasil dikirim');
+      </script>";
 }
 require('../layouts/header.php'); // menyisipkan file header.php
 ?>

@@ -47,7 +47,7 @@ if(isset($_POST['verify'])){ // check jika tombol verify sudah di submit
         <tr>
           <td><?= $data['tgl_pengaduan'];?></td>
           <td><?= $data['isi_laporan'];?></td>
-          <td><img src="../../img/<?= $data['foto'];?>" width="50px" alt=""></td>
+          <td><img src="<?= site_url ?>/img/<?= $data['foto'];?>" width="50px" alt=""></td>
           <td>
             <div><?= $status ;?></div>
           </td>
