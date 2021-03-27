@@ -34,20 +34,20 @@ if(isset($_POST['verify'])){ // check jika tombol verify sudah di submit
       </thead>
       <tbody>
         <?php foreach($pengaduan as $data) :
+        // check statusnya
              $status = $data['status'];
-             if($status == '0'){
-               $status = 'terkirim';
-             }else if($status == 'proses'){
-               $status = 'diproses';
+             if($status == '0'){ // jika status 0maka
+               $status = 'terkirim'; // tampilakan "terkirim"
+             }else if($status == 'proses'){ // jika status proses
+               $status = 'diproses';// tampilakan "diproses"
              }else{
-               $status = 'selesai';
+               $status = 'selesai'; // tampilkan selesai
              }
- 
             ?>
         <tr>
           <td><?= $data['tgl_pengaduan'];?></td>
           <td><?= $data['isi_laporan'];?></td>
-          <td><img src="<?= site_url ?>/img/<?= $data['foto'];?>" width="50px" alt=""></td>
+          <td><img src="<?= site_url ?>/img/<?= $data['foto'];?>" width="100px" alt=""></td>
           <td>
             <div><?= $status ;?></div>
           </td>
