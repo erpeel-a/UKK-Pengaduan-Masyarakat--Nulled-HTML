@@ -1,6 +1,10 @@
 <?php
   session_start(); // mulai session
    require('../layouts/header.php');  //menyisipkan layout header 
+   if(!isset($_SESSION['login'])){ // check jika user belum login
+    header('location:../../index.php'); // alihkan ke index page / login
+    exit;
+  }
  ?>
 Dashboard
 <p>Info user login : <b><?= $_SESSION['username'];?></b></p>
