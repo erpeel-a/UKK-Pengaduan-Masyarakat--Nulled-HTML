@@ -18,7 +18,7 @@ require('../layouts/header.php'); // menyisipkan file header.php
       <input type="text" id="username" placeholder="username." required name="username" autofocus> <br>
 
       <label for="nik" >nik</label>
-      <input type="number" id="nama" placeholder="xxxxx" size="16" max="16" name="nik"required autofocus><br>
+      <input type="number" id="nama" placeholder="xxxxx" name="nik"required autofocus><br>
 
       <label for="telephone" >telp</label>
       <input type="number" id="telephone" placeholder="08xxxxxxx" required name="telephone" autofocus><br>
