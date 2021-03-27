@@ -13,7 +13,7 @@ if($_SESSION['level'] != ''){
 
 $pengaduan = FetchAllData("SELECT * FROM tanggapan INNER JOIN pengaduan ON tanggapan.id_pengaduan=pengaduan.id_pengaduan INNER JOIN petugas ON petugas.id_petugas=tanggapan.id_petugas INNER JOIN masyarakat ON pengaduan.nik=masyarakat.nik");
 
-
+$site_url = ''; // Ganti URL sesuai dengan alamat local misal http://localhost/nama_folder
 require('../layouts/header.php');
 ?>
         <h1 class="h2">Daftar Pengaduan :</h1>    
@@ -41,8 +41,6 @@ require('../layouts/header.php');
             }else{
               $status = 'diterima';
             }
-
-            $site_url = 'http://localhost/UKK-Pengaduan-Masyarakat--Native/';
             ?>
           <tr>
             <td><?= $item['nama'];?></td>

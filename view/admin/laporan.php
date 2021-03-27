@@ -14,7 +14,9 @@ $conn = DBConnection();
   if($_SESSION['level'] != 'admin'){
     header('location:login.php');
   }
-$laporan = FetchAllData("SELECT * FROM tanggapan INNER JOIN pengaduan ON tanggapan.id_pengaduan=pengaduan.id_pengaduan INNER JOIN petugas ON petugas.id_petugas=tanggapan.id_petugas")
+$laporan = FetchAllData("SELECT * FROM tanggapan INNER JOIN pengaduan ON tanggapan.id_pengaduan=pengaduan.id_pengaduan INNER JOIN petugas ON petugas.id_petugas=tanggapan.id_petugas");
+
+$site_url = ''; // Ganti URL sesuai dengan alamat local misal http://localhost/nama_folder
 ?>
 <?php require('../layouts/header.php')  ?>
 
@@ -38,7 +40,7 @@ $laporan = FetchAllData("SELECT * FROM tanggapan INNER JOIN pengaduan ON tanggap
               <tr>
                 <td><?= $data['isi_laporan'];?></td>
                 <td><?= $data['tanggapan'];?></td>
-                <td><img src="../../img/<?= $data['foto'] ;?>" width="200px" alt=""></td>
+                <td><img src="<?= $site_url ?>/img/<?= $data['foto'] ;?>" width="200px" alt=""></td>
                 <td><?= $data['tgl_pengaduan'];?></td>
                 <td><?= $data['tanggapan'];?></td>
                 <td>  

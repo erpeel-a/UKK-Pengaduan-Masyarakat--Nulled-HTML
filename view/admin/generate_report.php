@@ -14,6 +14,8 @@ $conn = DBConnection();
   }
 
   $pengaduan = FetchAllData("SELECT * FROM tanggapan INNER JOIN pengaduan ON tanggapan.id_pengaduan=pengaduan.id_pengaduan INNER JOIN petugas ON petugas.id_petugas=tanggapan.id_petugas INNER JOIN masyarakat ON masyarakat.nik=pengaduan.nik");
+
+  $site_url = ''; // Ganti URL sesuai dengan alamat local misal http://localhost/nama_folder
 ?>
 <!DOCTYPE html>
 <html lang="en">
