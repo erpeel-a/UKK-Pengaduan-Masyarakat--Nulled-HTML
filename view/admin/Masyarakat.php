@@ -19,7 +19,6 @@ require('../layouts/header.php');
       <div>
         <h1 >Daftar Masyarakat</h1>
       </div>
-      <p>Welcome <b><?= $name ;?></b></p>
       
         <table border="2">
           <thead >

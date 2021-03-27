@@ -11,8 +11,8 @@ Dashboard
 <a href="Petugas.php">Data petugas</a>
 <a href="laporan.php">Cetak laporan </a>
 <?php }else{ ?>
-<a href="petugas.php">Data Masyarakat</a>
-<a href="Masyarakat.php">Data petugas</a>
+<a href="petugas.php">Data Petugas</a>
+<a href="Masyarakat.php">Data Masyarakat</a>
 <a href="pengaduan.php">Data Pengaduan</a>
 <?php } ?>
 <a href="../logout.php">Logout</a>
