@@ -1,37 +1,34 @@
 <?php
-// terhubung file function.php->akses method-method;
-require '../../function.php';
-$conn = DBConnection();
-  // submit true
-if(isset($_POST['submit'])){
-  if(daftar($_POST) > 0 ){
-      header('Location:../../login.php');
+require '../../function.php'; // menyisipkan file function.php agar bisa digunakan function2nya
+$conn = DBConnection(); // panggil function DBConnection dan masukkan ke dalam vaiable $conn
+if(isset($_POST['submit'])){ // chek apakah form sudah di submit
+  if(MasyarakatRegister($_POST) > 0 ){ // masukkan data dari $_POST ke fungsi MasyarakatRegister (yang ada di file function) dan check jika data masuk / lebih dari 0
+      header('Location:../../index.php'); // alihkan ke index page
   }else{
-    // error
-    echo mysqli_error($conn);
+    echo mysqli_error($conn); // jika error tampilkan error
   }
 }
-
-require('../layouts/header.php');
+require('../layouts/header.php'); // menyisipkan file header.php
 ?>
     <form  method="post" action="">
       <label for="nama" >nama</label>
-      <input type="text" id="nama" placeholder="nama"  name="nama"required autofocus>
+      <input type="text" id="nama" placeholder="nama"  name="nama"required autofocus> <br>
 
       <label for="username" >username</label>
-      <input type="text" id="username" placeholder="username." required name="username" autofocus>
+      <input type="text" id="username" placeholder="username." required name="username" autofocus> <br>
 
       <label for="nik" >nik</label>
-      <input type="text" id="nama" placeholder="xxxxx"  name="nik"required autofocus>
+      <input type="text" id="nama" placeholder="xxxxx"  name="nik"required autofocus><br>
 
       <label for="telephone" >telp</label>
-      <input type="text" id="telephone" placeholder="08xxxxxxx" required name="telephone" autofocus>
+      <input type="text" id="telephone" placeholder="08xxxxxxx" required name="telephone" autofocus><br>
 
       <label for="inputPassword" >Password</label>
       
-      <input type="password" id="inputPassword" placeholder="Password" name="password" required>
+      <input type="password" id="inputPassword" placeholder="Password" name="password" required><br>
        <label for="inputPassword" >Password</label>
-      <input type="password" id="inputPassword agin" placeholder="Password" name="password2" required>
-      <button type="submit" name="submit">submit</button>
+      <input type="password" id="inputPassword agin" placeholder="Password" name="konfirmasi_password" required><br>
+      <button type="submit" name="submit">Registrasi</button>
+      <a href="<?= site_url ?>/index.php" >kembali</a>
     </form> 
-<?php require('../layouts/footer.php'); ?>
+<?php require('../layouts/footer.php'); // menyisipkan file footer.php ?>

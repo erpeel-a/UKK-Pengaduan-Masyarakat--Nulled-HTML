@@ -1,19 +1,15 @@
 <?php
-session_start();
-require '../../function.php';
-$conn = DBConnection();
-  //simpan session username
-  $name = $_SESSION['username'];
-
-  //cek sudahkah login
-  if(!isset($_SESSION['login'])){
-    header('location:../../index.php');
+session_start(); // mulai session
+require '../../function.php'; // menyisipkan file function.php agar bisa di pakai function2 yang ada didalamnya
+$conn = DBConnection(); // panggil functio DBConnection dan masukkan ke dalam variable $conn
+if(!isset($_SESSION['login'])){  // check jika user belum login
+    header('location:../../index.php'); // alihkan ke halaman index page
     exit;
   }
+// tanggkap data masyarakat dengan fungsi FetchAllData yang sudah didefinisikan di function.php untuk mengambil data yang dikirimkan sebagai parameter dan masukkan dalam variable $petugas
+$masyarakat = FetchAllData("SELECT * FROM masyarakat");
 
-$petugas = FetchAllData("SELECT * FROM masyarakat");
-
-require('../layouts/header.php');
+require('../layouts/header.php'); // memanggil layout header
 ?>
     <main role="main" >
       <div>
@@ -30,7 +26,7 @@ require('../layouts/header.php');
             </tr>
           </thead>
           <tbody>
-            <?php foreach($petugas as $data) : ;?>
+            <?php foreach($masyarakat as $data) : ;?>
             <tr>
               <td><?= $data['nik'];?></td>
               <td><?= $data['nama'];?></td>
@@ -45,4 +41,5 @@ require('../layouts/header.php');
     </main>
   </div>
 </div>  
-<?php require('../layouts/footer.php'); ?>
+<!--  memanggil layout footer -->
+<?php require('../layouts/footer.php'); ?>  

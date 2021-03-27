@@ -1,37 +1,32 @@
 <?php
-session_start();
-require '../../function.php';
-$conn = DBConnection(); $name = $_SESSION['username'];
-if(!isset($_SESSION['login'])){
-  header('location:../../index.php');
+session_start(); // mulai session
+require('../../function.php'); // menyisipkan file funtion.php agar bisa digunakan fungsi2 yang ada di dalamnya
+$conn = DBConnection();
+if(!isset($_SESSION['login'])){ // check jika user belum login
+  header('location:../../index.php'); // alihkan ke index page
   exit;
 }
-if($_SESSION['level'] != ''){
-  header('location:login.php');
-  exit;
-}
-
+// tanggkap data tanggapan yang di join dengan table pengaduan, petugas dan masyarakat dengan fungsi FetchAllData yang sudah didefinisikan di function.php untuk mengambil data yang dikirimkan sebagai parameter dan masukkan dalam variable $pengaduan
 $pengaduan = FetchAllData("SELECT * FROM tanggapan INNER JOIN pengaduan ON tanggapan.id_pengaduan=pengaduan.id_pengaduan INNER JOIN petugas ON petugas.id_petugas=tanggapan.id_petugas INNER JOIN masyarakat ON pengaduan.nik=masyarakat.nik");
 
-$site_url = ''; // Ganti URL sesuai dengan alamat local misal http://localhost/nama_folder
-require('../layouts/header.php');
+require('../layouts/header.php'); // menyisipkan layout header
 ?>
-        <h1 class="h2">Daftar Pengaduan :</h1>    
-      <table border="2">
-        <thead >
-            <tr>
-              <th>Nama Pelapor</th>
-              <th>Tanggal Pengaduan</th>
-              <th>isi laporan</th>
-              <th>bukti</th>
-              <th>tanggapan</th>
-              <th>tanggal tanggapan</th>
-              <th>Petugas</th>
-              <th>status</th>
-            </tr>
-        </thead>
-        <tbody >
-          <?php foreach($pengaduan as $item) : 
+<h1 class="h2">Daftar Pengaduan :</h1>
+<table border="2">
+  <thead>
+    <tr>
+      <th>Nama Pelapor</th>
+      <th>Tanggal Pengaduan</th>
+      <th>isi laporan</th>
+      <th>bukti</th>
+      <th>tanggapan</th>
+      <th>tanggal tanggapan</th>
+      <th>Petugas</th>
+      <th>status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <?php foreach($pengaduan as $item) : 
 
             $status = $item['status'];
             if($status == '0'){
@@ -39,22 +34,23 @@ require('../layouts/header.php');
             }else if($status == 'proses'){
               $status = 'diproses';
             }else{
-              $status = 'diterima';
+              $status = 'selesai';
             }
             ?>
-          <tr>
-            <td><?= $item['nama'];?></td>
-            <td><?= $item['tgl_pengaduan'];?></td>
-            <td><?= $item['isi_laporan'];?></td>
-            <td><img src="<?= $site_url ?>/img/<?= $item['foto'];?>"  width ="50px"alt=""></td>
-            <td><?= $item['tanggapan'];?></td>
-            <td><?= $item['tgl_tanggapan'];?></td>
-            <td><?= $item['nama_petugas'] ?></td>
-            <td><div><?= $status ;?></div></td>
-          </tr>
-        <?php endforeach ;?>
-        </tbody>
-      </table>
-      <a href="index.php" >kembali</a>
-    
-<?php require('../layouts/footer.php'); ?>
+    <tr>
+      <td><?= $item['nama'];?></td>
+      <td><?= $item['tgl_pengaduan'];?></td>
+      <td><?= $item['isi_laporan'];?></td>
+      <td><img src="<?= site_url ?>/img/<?= $item['foto'];?>" width="100px" alt=""></td>
+      <td><?= $item['tanggapan'];?></td>
+      <td><?= $item['tgl_tanggapan'];?></td>
+      <td><?= $item['nama_petugas'] ?></td>
+      <td>
+        <div><?= $status ;?></div>
+      </td>
+    </tr>
+    <?php endforeach ;?>
+  </tbody>
+</table>
+<a href="index.php">kembali</a>
+<?php require('../layouts/footer.php');  // menyisipkan layout footer?>

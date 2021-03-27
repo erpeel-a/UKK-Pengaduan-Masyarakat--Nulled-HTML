@@ -1,21 +1,18 @@
 <?php
-session_start();
-require('../../function.php');
-$conn = DBConnection();
+session_start(); // mulai session
+require('../../function.php'); // menyisipkan file funtion.php agar bisa digunakan fungsi2 yang ada di dalamnya
+$conn = DBConnection(); // panggil funsi DBConnection dan masukkan ke dalam variable $conn
 
-  //cek sesi
-  if(!isset($_SESSION['login'])){
-    header('location:login.php');
-    exit;
-  }
-  //cek level 
-  if($_SESSION['level'] != 'admin'){
-    header('location:login.php');
-  }
+if(!isset($_SESSION['login'])){  // check jika user belum login
+	header('location:../../index.php'); // alihkan ke halaman index page
+	exit;
+}
+if($_SESSION['level'] != 'admin'){ // jika role petugas bukan admin 
+	header('location:index.php'); // alihkan ke index.php (yang ada di folder admin)
+}
+// tanggkap data pengadun serta tanggapannya dengan fungsi FetchAllData yang sudah didefinisikan di function.php untuk mengambil data yang dikirimkan sebagai parameter dan masukkan dalam variable $pengaduan
+$pengaduan = FetchAllData("SELECT * FROM tanggapan INNER JOIN pengaduan ON tanggapan.id_pengaduan=pengaduan.id_pengaduan INNER JOIN petugas ON petugas.id_petugas=tanggapan.id_petugas INNER JOIN masyarakat ON masyarakat.nik=pengaduan.nik");
 
-  $pengaduan = FetchAllData("SELECT * FROM tanggapan INNER JOIN pengaduan ON tanggapan.id_pengaduan=pengaduan.id_pengaduan INNER JOIN petugas ON petugas.id_petugas=tanggapan.id_petugas INNER JOIN masyarakat ON masyarakat.nik=pengaduan.nik");
-
-  $site_url = ''; // Ganti URL sesuai dengan alamat local misal http://localhost/nama_folder
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -30,7 +27,7 @@ $conn = DBConnection();
 <body>
 	<style>
 		@media print {
-			.btn-danger {
+			a {
 				display: none;
 			}
 		}
@@ -63,7 +60,7 @@ $conn = DBConnection();
 					<td><?= $item['tgl_pengaduan'] ?></td>
 					<td><?= $item['tgl_tanggapan'] ?></td>
 					<td><?= $item['isi_laporan'] ;?></td>
-					<td><img src="<?= $site_url ?>/img/<?= $item['foto'] ;?>" width="100px" alt=""></td>
+					<td><img src="<?= site_url ?>/img/<?= $item['foto'] ;?>" width="100px" alt=""></td>
 					<td><?= $item['tanggapan'] ;?></td>
 				</tr>
 				<?php } ?>
@@ -71,6 +68,7 @@ $conn = DBConnection();
 		</table>
 		<a href="index.php">kembali</a>
 		<script>
+		// memaggil fungsi print javascript untuk mencetak dalam bentuk dokumen
 			window.print();
 		</script>
 	</body>

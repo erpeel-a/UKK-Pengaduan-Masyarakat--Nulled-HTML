@@ -1,22 +1,17 @@
 <?php
-session_start();
-require('../../function.php');
-$conn = DBConnection();
-  //simpan session username
-  $name = $_SESSION['username'];
-
-  //cek sesi
-  if(!isset($_SESSION['login'])){
-    header('location:login.php');
+session_start(); // mulai session
+require('../../function.php'); // menyisipkan file funtion.php agar bisa digunakan fungsi2 yang ada di dalamnya
+$conn = DBConnection(); // panggil funsi DBConnection dan masukkan ke dalam variable  $conn
+  if(!isset($_SESSION['login'])){ // cek jika user belum login
+    header('location:login.php'); // alihkan ke login.php
     exit;
   }
-  //cek level 
-  if($_SESSION['level'] != 'admin'){
-    header('location:login.php');
+  if($_SESSION['level'] != 'admin'){ // jika role petugas bukan admin 
+    header('location:index.php'); // alihkan ke index.php (yang ada di folder admin)
   }
+// tangkap data tanggapan dengan fungsi FetchAllData yang sudah didefinisikan di function.php untuk mengambil data yang dikirimkan sebagai parameter dan masukkan dalam vaiable $laporan
 $laporan = FetchAllData("SELECT * FROM tanggapan INNER JOIN pengaduan ON tanggapan.id_pengaduan=pengaduan.id_pengaduan INNER JOIN petugas ON petugas.id_petugas=tanggapan.id_petugas");
 
-$site_url = ''; // Ganti URL sesuai dengan alamat local misal http://localhost/nama_folder
 ?>
 <?php require('../layouts/header.php')  ?>
 
@@ -40,7 +35,7 @@ $site_url = ''; // Ganti URL sesuai dengan alamat local misal http://localhost/n
               <tr>
                 <td><?= $data['isi_laporan'];?></td>
                 <td><?= $data['tanggapan'];?></td>
-                <td><img src="<?= $site_url ?>/img/<?= $data['foto'] ;?>" width="200px" alt=""></td>
+                <td><img src="<?= site_url ?>/img/<?= $data['foto'] ;?>" width="200px" alt=""></td>
                 <td><?= $data['tgl_pengaduan'];?></td>
                 <td><?= $data['tanggapan'];?></td>
                 <td>  

@@ -8,5 +8,5 @@
 </head>
 <body>
   <nav>
-    <a href="#">Pengaduan Masyarakat</a>
+    <h2>Pengaduan Masyarakat</h2>
   </nav>
