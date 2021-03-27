@@ -48,4 +48,4 @@ $laporan = FetchAllData("SELECT * FROM tanggapan INNER JOIN pengaduan ON tanggap
           </div>
           <a href="index.php" >kembali</a>
         
-<?php require('../layouts/footer.php')  ?>
+<?php require('../layouts/footer.php') // menyisipkan file footer  ?>
