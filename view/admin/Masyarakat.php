@@ -11,30 +11,32 @@ $conn = DBConnection();
     exit;
   }
 
-$petugas = FetchAllData("SELECT * FROM petugas");
+$petugas = FetchAllData("SELECT * FROM masyarakat");
 
 require('../layouts/header.php');
 ?>
     <main role="main" >
       <div>
-        <h1 >Daftar Petugas</h1>
+        <h1 >Daftar Masyarakat</h1>
       </div>
+      <p>Welcome <b><?= $name ;?></b></p>
+      
         <table border="2">
           <thead >
             <tr>
-              <th>Nama Petugas</th>
-              <th>username</th>
-              <th>No Telp</th>
-              <th>level</th>
+              <th>Nik</th>
+              <th>Nama</th>
+              <th>Username</th>
+              <th>telp</th>
             </tr>
           </thead>
           <tbody>
             <?php foreach($petugas as $data) : ;?>
             <tr>
-              <td><?= $data['nama_petugas'];?></td>
+              <td><?= $data['nik'];?></td>
+              <td><?= $data['nama'];?></td>
               <td><?= $data['username'];?></td>
               <td><?= $data['telp'];?></td>
-              <td><?= $data['level'];?></td>
             </tr>
             <?php endforeach ;?>
           </tbody>

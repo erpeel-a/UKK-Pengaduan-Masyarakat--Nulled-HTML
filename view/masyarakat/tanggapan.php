@@ -11,21 +11,14 @@ if($_SESSION['level'] != ''){
   exit;
 }
 
-$query = "SELECT * FROM tanggapan INNER JOIN pengaduan ON tanggapan.id_pengaduan=pengaduan.id_pengaduan INNER JOIN petugas ON petugas.id_petugas=tanggapan.id_petugas INNER JOIN masyarakat ON pengaduan.nik=masyarakat.nik";
-$execute = mysqli_query($conn,$query) or die(mysqli_error($conn));
-$FecthAllData = mysqli_fetch_All($execute,MYSQLI_ASSOC);
+$pengaduan = FetchAllData("SELECT * FROM tanggapan INNER JOIN pengaduan ON tanggapan.id_pengaduan=pengaduan.id_pengaduan INNER JOIN petugas ON petugas.id_petugas=tanggapan.id_petugas INNER JOIN masyarakat ON pengaduan.nik=masyarakat.nik");
+
 
 require('../layouts/header.php');
 ?>
-<div class="container-fluid ">
-  <div class="row justify-content-center">
-    <main class="col-md-6">
-      <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h2">Daftar Pengaduan :</h1>
-      </div>
-      <div class="container col-md-12">
-      <table class="table table-bordered">
-        <thead class="bg-dark text-white ">
+        <h1 class="h2">Daftar Pengaduan :</h1>    
+      <table border="2">
+        <thead >
             <tr>
               <th>Nama Pelapor</th>
               <th>Tanggal Pengaduan</th>
@@ -38,7 +31,7 @@ require('../layouts/header.php');
             </tr>
         </thead>
         <tbody >
-          <?php foreach($FecthAllData as $item) : 
+          <?php foreach($pengaduan as $item) : 
 
             $status = $item['status'];
             if($status == '0'){
@@ -59,14 +52,11 @@ require('../layouts/header.php');
             <td><?= $item['tanggapan'];?></td>
             <td><?= $item['tgl_tanggapan'];?></td>
             <td><?= $item['nama_petugas'] ?></td>
-            <td><div class="badge badge-success"><?= $status ;?></div></td>
+            <td><div><?= $status ;?></div></td>
           </tr>
         <?php endforeach ;?>
         </tbody>
       </table>
-      <a href="index.php" class="btn btn-primary">kembali</a>
-    </div>
-    </main>
-  </div>
-</div>
+      <a href="index.php" >kembali</a>
+    
 <?php require('../layouts/footer.php'); ?>

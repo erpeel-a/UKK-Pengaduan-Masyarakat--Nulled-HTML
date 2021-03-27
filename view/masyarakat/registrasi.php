@@ -14,24 +14,24 @@ if(isset($_POST['submit'])){
 
 require('../layouts/header.php');
 ?>
-    <form class="form-signin" method="post" action="">
-      <label for="nama" class="sr-only">nama</label>
-      <input type="text" id="nama" class="form-control" placeholder="nama"  name="nama"required autofocus>
+    <form  method="post" action="">
+      <label for="nama" >nama</label>
+      <input type="text" id="nama" placeholder="nama"  name="nama"required autofocus>
 
-      <label for="username" class="sr-only">username</label>
-      <input type="text" id="username" class="form-control" placeholder="username." required name="username" autofocus>
+      <label for="username" >username</label>
+      <input type="text" id="username" placeholder="username." required name="username" autofocus>
 
-      <label for="nik" class="sr-only">nik</label>
-      <input type="text" id="nama" class="form-control" placeholder="xxxxx"  name="nik"required autofocus>
+      <label for="nik" >nik</label>
+      <input type="text" id="nama" placeholder="xxxxx"  name="nik"required autofocus>
 
-      <label for="telephone" class="sr-only">telp</label>
-      <input type="text" id="telephone" class="form-control" placeholder="08xxxxxxx" required name="telephone" autofocus>
+      <label for="telephone" >telp</label>
+      <input type="text" id="telephone" placeholder="08xxxxxxx" required name="telephone" autofocus>
 
-      <label for="inputPassword" class="sr-only">Password</label>
+      <label for="inputPassword" >Password</label>
       
-      <input type="password" id="inputPassword" class="form-control" placeholder="Password" name="password" required>
-       <label for="inputPassword" class="sr-only">Password</label>
-      <input type="password" id="inputPassword agin" class="form-control" placeholder="Password" name="password2" required>
-      <button class="btn btn-lg btn-primary btn-block" type="submit" name="submit">submit</button>
+      <input type="password" id="inputPassword" placeholder="Password" name="password" required>
+       <label for="inputPassword" >Password</label>
+      <input type="password" id="inputPassword agin" placeholder="Password" name="password2" required>
+      <button type="submit" name="submit">submit</button>
     </form> 
 <?php require('../layouts/footer.php'); ?>

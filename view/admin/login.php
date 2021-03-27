@@ -25,27 +25,24 @@ $conn = DBConnection();
 
 require('../layouts/header.php')
 ?>
-<div class="container mt-5">
-  <div class="row justify-content-center">
-    <div class="col-md-6">
+
     <?php if(isset($error)):?>
-    <div class="alert alert-danger">username atau password anda salah</div>
+    <div >username atau password anda salah</div>
     <?php endif ;?>
-    <div class="card-header">Login <strong>Petugas</strong></div>
-      <div class="card">
-        <div class="card-body">
-          <form class="form-group" method="post" action="">
-            <div class="form-group">
-              <label for="inputEmail" class="sr-only">username</label>
+    <div >Login <strong>Petugas</strong></div>
+      
+          <form  method="post" action="">
+            <div >
+              <label for="inputEmail" >username</label>
               <input type="text" id="inputEmail" class="form-control" placeholder="username" name="username" autofocus>
             </div>
-            <div class="form-group">
-              <label for="inputPassword" class="sr-only">Password</label>
+            <div >
+              <label for="inputPassword" >Password</label>
               <input type="password" id="inputPassword" class="form-control" placeholder="Password" name="password">
             </div>
-            <div class="form-group">
-              <button class="btn btn-primary" type="submit" name="submit">Login</button>
-              <a class="btn btn-danger float-right" href="../../index.php">Login Sebagai Masyarakat</a>
+            <div >
+              <button type="submit" name="submit">Login</button>
+              <a  href="../../index.php">Login Sebagai Masyarakat</a>
             </div>
           </form>
         </div>

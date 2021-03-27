@@ -15,12 +15,10 @@ $conn = DBConnection();
   //id petugas
 $_idPetugas = $_SESSION['id_petugas'];
 $_idPengaduan = $_SESSION['idpengaduan'];
-// var_dump($idPetugas);
+// var_dump($_idPetugas);
 
 // fech data pengadaun isi laporan
-$sql = "SELECT isi_laporan FROM pengaduan WHERE id_pengaduan=$_idPengaduan";
-$execute = mysqli_query($conn,$sql);
-$pengaduan = mysqli_fetch_assoc($execute);
+$pengaduan = FetchAllData("SELECT * FROM pengaduan WHERE id_pengaduan='$_idPengaduan'");
 
 
 if(isset($_POST['submit'])){
@@ -49,26 +47,17 @@ if(isset($_POST['submit'])){
 }
 require('../layouts/header.php');
 ?>
-<div class="container-fluid">
-  <div class="row">
-    <div  class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
-      <div
-        class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h2>Tulis Tanggapan</h2>
-      </div>
-      <form action="" class="form " method="post" enctype="multipart/form-data">
-        <div class="form-group">
-          <label for="judul_pengaduan">Isi Pengaduan</label>
-          <input type="text" readonly name="tanggal" class="form-control mb-3" value="<?= $pengaduan['isi_laporan'] ?>">
-        </div>
-        <div class="form-group">Tanggapan
-          <label for="tanggapan"></label>
-          <textarea name="tanggapan" id="" cols="30" rows="10" class="form-control"></textarea>
-        </div>
-        <button type="submit" name="submit" class="btn btn-primary">Kirim Tanggapan</button>
-        <a href="index.php" class="btn btn-danger">Kembali</a>
-      </form>
-    </div>
+<h2>Tulis Tanggapan</h2>
+<form action="" method="post" enctype="multipart/form-data">
+  <div>
+    <label for="judul_pengaduan">Isi Pengaduan</label>
+    <input type="text" readonly name="tanggal" value="<?= $pengaduan[0]['isi_laporan'] ?>">
   </div>
-</div>
+  <div>Tanggapan
+    <label for="tanggapan"></label>
+    <textarea name="tanggapan" id="" cols="30" rows="10"></textarea>
+  </div>
+  <button type="submit" name="submit">Kirim Tanggapan</button>
+  <a href="index.php">Kembali</a>
+</form>
 <?php require('../layouts/footer.php'); ?>

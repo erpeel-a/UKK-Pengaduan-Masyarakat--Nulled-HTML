@@ -5,6 +5,19 @@ function DBConnection(){
   return mysqli_connect('localhost','root','','db_pengaduan_masyarakat');
 }
 
+function FetchAllData($query)
+{
+  $conn = DBConnection();
+
+  $query = mysqli_query($conn, $query);
+  $rows = [];
+
+  while ($row = mysqli_fetch_assoc($query)) {
+    $rows[] = $row;
+  }
+  return $rows;
+}
+
 function registrasi($data){
   $conn = DBConnection();
 
