@@ -64,7 +64,5 @@ if(isset($_POST['verify'])){ // check jika tombol verify sudah di submit
     <a href="index.php">kembali</a>
   </div>
 </main>
-</div>
-</div>
 <!-- menyisipkan layout footer -->
 <?php require('../layouts/footer.php'); ?>

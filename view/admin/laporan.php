@@ -13,30 +13,30 @@ $conn = DBConnection(); // panggil funsi DBConnection dan masukkan ke dalam vari
 $laporan = FetchAllData("SELECT *  FROM tanggapan T1 INNER JOIN pengaduan P1 ON T1.id_pengaduan=P1.id_pengaduan INNER JOIN petugas P2 ON P2.id_petugas=T1.id_petugas")
 ?>
 <?php require('../layouts/header.php')  ?>
-          <h1>Cetak Laporan</h1>
-        <a href="generate_report.php" >Cetak </a>
-          <table border="2">
-            <thead >
-              <tr>
-                <th>Pengaduan</th>
-                <th>tanggal pengaduan</th>
-                <th>foto</th>
-                <th>tgl_tanggapan</th>
-                <th>Tanggapan</th>
-              </tr>
-            </thead>
-            <tbody>
-              <?php foreach($laporan as $data) : ?>
-              <tr>
-                <td><?= $data['isi_laporan'];?></td>
-                <td><?= $data['tanggapan'];?></td>
-                <td><img src="<?= site_url ?>/img/<?= $data['foto'] ;?>" width="200px" alt=""></td>
-                <td><?= $data['tgl_pengaduan'];?></td>
-                <td><?= $data['tanggapan'];?></td>
-              </tr>
-              <?php endforeach ;?>
-            </tbody>
-          </table>
-          <a href="index.php" >kembali</a>
-        
+<h1>Cetak Laporan</h1>
+<a href="generate_report.php">Cetak </a>
+<table border="2">
+  <thead>
+    <tr>
+      <th>Pengaduan</th>
+      <th>tanggal pengaduan</th>
+      <th>foto</th>
+      <th>tgl_tanggapan</th>
+      <th>Tanggapan</th>
+    </tr>
+  </thead>
+  <tbody>
+    <?php foreach($laporan as $data) : ?>
+    <tr>
+      <td><?= $data['isi_laporan'];?></td>
+      <td><?= $data['tanggapan'];?></td>
+      <td><img src="<?= site_url ?>/img/<?= $data['foto'] ;?>" width="200px" alt=""></td>
+      <td><?= $data['tgl_pengaduan'];?></td>
+      <td><?= $data['tanggapan'];?></td>
+    </tr>
+    <?php endforeach ;?>
+  </tbody>
+</table>
+<a href="index.php">kembali</a>
+
 <?php require('../layouts/footer.php') // menyisipkan file footer  ?>

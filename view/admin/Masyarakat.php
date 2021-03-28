@@ -14,7 +14,6 @@ require('../layouts/header.php'); // memanggil layout header
       <div>
         <h1 >Daftar Masyarakat</h1>
       </div>
-      
         <table border="2">
           <thead >
             <tr>
@@ -38,7 +37,5 @@ require('../layouts/header.php'); // memanggil layout header
         <a href="index.php" >kembali</a>
       </div>
     </main>
-  </div>
-</div>  
 <!--  memanggil layout footer -->
 <?php require('../layouts/footer.php'); ?>  

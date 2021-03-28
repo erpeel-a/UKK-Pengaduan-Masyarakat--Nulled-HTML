@@ -12,25 +12,25 @@ if(isset($_POST['submit'])){ // chek apakah form sudah di submit
 }
 require('../layouts/header.php'); // menyisipkan file header.php
 ?>
-    <form  method="post" action="">
-      <label for="nama" >nama</label>
-      <input type="text" id="nama" placeholder="nama"  name="nama"required autofocus> <br>
+<form method="post" action="">
+  <label for="nama">nama</label>
+  <input type="text" id="nama" placeholder="nama" name="nama" required autofocus> <br>
 
-      <label for="username" >username</label>
-      <input type="text" id="username" placeholder="username." required name="username" autofocus> <br>
+  <label for="username">username</label>
+  <input type="text" id="username" placeholder="username." required name="username" autofocus> <br>
 
-      <label for="nik" >nik</label>
-      <input type="number" id="nama" placeholder="xxxxx" name="nik"required autofocus><br>
+  <label for="nik">nik</label>
+  <input type="number" id="nama" placeholder="xxxxx" name="nik" required autofocus><br>
 
-      <label for="telephone" >telp</label>
-      <input type="number" id="telephone" placeholder="08xxxxxxx" required name="telephone" autofocus><br>
+  <label for="telephone">telp</label>
+  <input type="number" id="telephone" placeholder="08xxxxxxx" required name="telephone" autofocus><br>
 
-      <label for="inputPassword" >Password</label>
-      
-      <input type="password" id="inputPassword" placeholder="Password" name="password" required><br>
-       <label for="inputPassword" >Password</label>
-      <input type="password" id="inputPassword agin" placeholder="Password" name="konfirmasi_password" required><br>
-      <button type="submit" name="submit">Registrasi</button>
-      <a href="<?= site_url ?>/index.php" >kembali</a>
-    </form> 
+  <label for="inputPassword">Password</label>
+
+  <input type="password" id="inputPassword" placeholder="Password" name="password" required><br>
+  <label for="inputPassword">Password</label>
+  <input type="password" id="inputPassword agin" placeholder="Password" name="konfirmasi_password" required><br>
+  <button type="submit" name="submit">Registrasi</button>
+  <a href="<?= site_url ?>/index.php">kembali</a>
+</form>
 <?php require('../layouts/footer.php'); // menyisipkan file footer.php ?>

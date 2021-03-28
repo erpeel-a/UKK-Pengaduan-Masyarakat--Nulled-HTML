@@ -46,5 +46,4 @@ Registrasi
   <button type="submit" name="submit">Register</button>
   <a href="index.php">kembali</a>
 </form>
-
 <?php require('../layouts/footer.php')  // menyisipkan file layout footer?>

@@ -12,7 +12,6 @@ if($_SESSION['level'] != 'admin'){ // jika role petugas bukan admin
 }
 // tanggkap data  pengaduan , masyarakat , petugas serta tanggapannya dengan fungsi FetchAllData yang sudah didefinisikan di function.php untuk mengambil data yang dikirimkan sebagai parameter dan masukkan dalam variable $pengaduan
 $pengaduan = FetchAllData("SELECT * FROM tanggapan T1 INNER JOIN pengaduan P1 ON T1.id_pengaduan=P1.id_pengaduan INNER JOIN petugas P2 ON P2.id_petugas=T1.id_petugas INNER JOIN masyarakat M1 ON P1.nik=M1.nik");
-
 ?>
 <!DOCTYPE html>
 <html lang="en">

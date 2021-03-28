@@ -38,6 +38,4 @@ require('../layouts/header.php');
         <a href="index.php" >kembali</a>
       </div>
     </main>
-  </div>
-</div>  
 <?php require('../layouts/footer.php'); ?>
