@@ -10,8 +10,7 @@ $conn = DBConnection(); // panggil funsi DBConnection dan masukkan ke dalam vari
     header('location:index.php'); // alihkan ke index.php (yang ada di folder admin)
   }
 // tangkap data tanggapan dengan fungsi FetchAllData yang sudah didefinisikan di function.php untuk mengambil data yang dikirimkan sebagai parameter dan masukkan dalam vaiable $laporan
-$laporan = FetchAllData("SELECT * FROM tanggapan INNER JOIN pengaduan ON tanggapan.id_pengaduan=pengaduan.id_pengaduan INNER JOIN petugas ON petugas.id_petugas=tanggapan.id_petugas");
-
+$laporan = FetchAllData("SELECT *  FROM tanggapan T1 INNER JOIN pengaduan P1 ON T1.id_pengaduan=P1.id_pengaduan INNER JOIN petugas P2 ON P2.id_petugas=T1.id_petugas")
 ?>
 <?php require('../layouts/header.php')  ?>
 
