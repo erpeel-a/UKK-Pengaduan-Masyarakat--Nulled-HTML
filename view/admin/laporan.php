@@ -13,11 +13,8 @@ $conn = DBConnection(); // panggil funsi DBConnection dan masukkan ke dalam vari
 $laporan = FetchAllData("SELECT *  FROM tanggapan T1 INNER JOIN pengaduan P1 ON T1.id_pengaduan=P1.id_pengaduan INNER JOIN petugas P2 ON P2.id_petugas=T1.id_petugas")
 ?>
 <?php require('../layouts/header.php')  ?>
-
-          Cetak Laporan
-        
+          <h1>Cetak Laporan</h1>
         <a href="generate_report.php" >Cetak </a>
-          
           <table border="2">
             <thead >
               <tr>

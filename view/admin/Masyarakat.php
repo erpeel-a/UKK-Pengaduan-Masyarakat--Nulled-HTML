@@ -8,7 +8,6 @@ if(!isset($_SESSION['login'])){  // check jika user belum login
   }
 // tanggkap data masyarakat dengan fungsi FetchAllData yang sudah didefinisikan di function.php untuk mengambil data yang dikirimkan sebagai parameter dan masukkan dalam variable $petugas
 $masyarakat = FetchAllData("SELECT * FROM masyarakat");
-
 require('../layouts/header.php'); // memanggil layout header
 ?>
     <main role="main" >

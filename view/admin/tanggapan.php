@@ -33,7 +33,7 @@ if(isset($_POST['submit'])){ // check jika tombol di submit
      //jika salah maka muncul kan alert
     echo "
     <script>
-     alert('tanggapan gagal dikitim');
+     alert('tanggapan gagal dikirim');
     </script>
     ";
   }

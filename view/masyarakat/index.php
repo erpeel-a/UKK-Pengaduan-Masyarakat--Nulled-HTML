@@ -6,7 +6,7 @@ if(!isset($_SESSION['login'])){ // cek jika user belum login
 }
 require('../layouts/header.php'); // menyisipkan file layuot header.php
 ?>
-  Dashboard Home <br>
+  Dashboard Home <br> info user login <strong><?= $_SESSION['username'] ?></strong>
   <a href="tanggapan.php">Daftar Pengaduan yang ditanggapi</a>
   <a href="input_pengaduan.php">Buat Laporan</a>
   <a href="../logout.php">Logout</a>
