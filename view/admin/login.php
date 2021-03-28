@@ -32,11 +32,11 @@ require('../layouts/header.php'); // menyisipkan file layout header
 <form method="post" action="">
   <div>
     <label for="inputEmail">username</label>
-    <input type="text" id="inputEmail" class="form-control" placeholder="username" name="username" autofocus>
+    <input type="text" id="inputEmail"  placeholder="username" name="username" autofocus>
   </div>
   <div>
     <label for="inputPassword">Password</label>
-    <input type="password" id="inputPassword" class="form-control" placeholder="Password" name="password">
+    <input type="password" id="inputPassword"  placeholder="Password" name="password">
   </div>
   <div>
     <button type="submit" name="submit">Login</button>
