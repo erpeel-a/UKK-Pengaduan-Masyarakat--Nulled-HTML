@@ -14,10 +14,10 @@ function FetchAllData($query)
   $conn = DBConnection(); // memanggil fungsi DBConnection dan masukkan ke dalam variable $conn
   $query = mysqli_query($conn, $query); // masukkan variable $conn, dan paramenter $query ke dalam fungsi mysqli_query
   $rows = []; // menyiapkan varible bertipe array kosong
-  while ($row = mysqli_fetch_assoc($query)) { // looping hasil query dan di ubah menjadi array assosicative dan masukkan ke dalam folder row
+  while ($row = mysqli_fetch_assoc($query)) { // looping hasil query dan di ubah menjadi array assosicative dan masukkan ke dalam variable row
     $rows[] = $row; // masukkan data dari varible $row dan masukkan ke dalam varible $rows (yang berisi array kosong)
   }
-  return $rows; // kembalikan data yang sudah masuh ke variable $rows
+  return $rows; // kembalikan data yang sudah masuk ke variable $rows
 }
 
 function PetugasRegister($data){
@@ -91,7 +91,6 @@ function InputPengaduan($nik,$data){
   echo "<script> 
     alert('Data Pengaduan berhasil di kirim');
   </script>";
-  // tampilakn alert dan reload halaman
 }
 
 function upload(){
