@@ -53,9 +53,4 @@ require('view/layouts/header.php')
     <a href="view/admin/login.php">Login Sebagai Petugas</a>
   </div>
 </form>
-</div>
-</div>
-</div>
-</div>
-</div>
 <?php require('view/layouts/footer.php') ?>
