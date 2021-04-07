@@ -19,7 +19,7 @@ $conn = DBConnection(); // memanggil fungsi DBConnection dari file function.php
           $_SESSION['nik'] = $data['nik'];
           $_SESSION['username'] = $data['username'];  
           // redirect ke halaman masyarakat index
-          header('location:view/masyarakat/index.php');
+          header('location:index.php');
           exit;
         }
     }
