@@ -2,10 +2,7 @@
 session_start(); // mulai session
 require('../../function.php'); // menyisipkan file funtion.php agar bisa digunakan fungsi2 yang ada di dalamnya
 $conn = DBConnection(); // panggil funsi DBConnection dan masukkan ke dalam variable  $conn
-  if(!isset($_SESSION['login'])){ // cek jika user belum login
-    header('location:login.php'); // alihkan ke login.php
-    exit;
-  }
+isLogin();// panggil fungsi isLogin yang ada di file functions.php
   if($_SESSION['level'] != 'admin'){ // jika role petugas bukan admin 
     header('location:index.php'); // alihkan ke index.php (yang ada di folder admin)
   }

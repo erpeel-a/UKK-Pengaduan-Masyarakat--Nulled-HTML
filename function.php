@@ -7,6 +7,14 @@ define('site_url', 'http://localhost/UKK-Pengaduan-Masyarakat--Nulled-HTML'); //
 function DBConnection(){
   return mysqli_connect('localhost','root','','pengaduan_masyarakat');
 }
+// fungsi yang digunakan untuk mengecek apakah user sudah login
+function isLogin()
+{
+  if(!isset($_SESSION['login'])){ // cek jika user belum login
+    header('location:login.php'); // alihkan ke login.php
+    exit;
+  }
+}
 
 // fungsi yang digunakan  untuk menampikan data sesuai query yang dikirim kan sebagai parameter
 function FetchAllData($query)
@@ -110,16 +118,19 @@ function upload(){
     </script>";
     return false;
   }
+  /*
+    optional bisa dipakai bisa tidak
+  */ 
   // check ukuran file jika ukuran lebih dari 1000000mb
-  if($ukuranFile > 1000000){
-    echo "
-    <script>
-      alert('ukuran gambar terlalu besar');
-    </script>
-    ";
-    // munculkan alert
-    return false;
-  }
+  // if($ukuranFile > 1000000){
+  //   echo "
+  //   <script>
+  //     alert('ukuran gambar terlalu besar');
+  //   </script>
+  //   ";
+  //   // munculkan alert
+  //   return false;
+  // }
   // buat nama file baru dengan uniqid
   $namaFileBaru = uniqid(); // uniqid digunakan untuk menghasilkan id berdasarkan waktu input user
   $namaFileBaru .= '.';  // gambung / concat dengan . (titik )

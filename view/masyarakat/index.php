@@ -1,9 +1,7 @@
 <?php
-session_start(); // memulai session
-if(!isset($_SESSION['login'])){ // cek jika user belum login
-  header('location:login.php'); // alihkan ke login.php
-  exit;
-}
+session_start();
+require '../../function.php'; //menyisipkan file function
+isLogin();
 require('../layouts/header.php'); // menyisipkan file layuot header.php
 ?>
   Dashboard Home <br> info user login <strong><?= $_SESSION['username'] ?></strong>

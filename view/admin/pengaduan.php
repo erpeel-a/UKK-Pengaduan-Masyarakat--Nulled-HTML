@@ -2,10 +2,7 @@
 session_start(); // mulai session
 require '../../function.php'; // menyisipkan file function.php agar bisa di pakai function2 yang ada didalamnya
 $conn = DBConnection(); // panggil functio DBConnection dan masukkan ke dalam variable $conn
-  if(!isset($_SESSION['login'])){  // check jika user belum login
-    header('location:../../index.php'); // alihkan ke halaman index page
-    exit;
-  }
+isLogin();// panggil fungsi isLogin yang ada di file functions.php
 if(isset($_POST['verify'])){ // check jika tombol verify sudah di submit
   $idpengaduan = $_POST['verify']; // tanggap id pengaduan yang dikirim 
   $_SESSION['idpengaduan'] = $idpengaduan; // masukkan id pengaduan ke dalam session

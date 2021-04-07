@@ -2,10 +2,7 @@
 session_start(); // memulai session
 require '../../function.php'; // menyisipkan file function.php agar bisa digunakan function2nya
 $conn = DBConnection(); // panggil function DBConnection dari file function.php
-  if(!isset($_SESSION['login'])){ // cek jika jika user belum login
-    header('location:../../index.php'); // alihkan ke halaman index page
-    exit;
-  }
+isLogin();// panggil fungsi isLogin yang ada di file functions.php
   // tanggkap data petugas dengan fungsi FetchAllData yang sudah didefinisikan di function.php untuk mengambil data yang dikirimkan sebagai parameter dan masukkan dalam variable $petugas
 $petugas = FetchAllData("SELECT * FROM petugas"); 
 

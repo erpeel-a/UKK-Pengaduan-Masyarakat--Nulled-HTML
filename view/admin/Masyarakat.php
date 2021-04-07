@@ -2,10 +2,7 @@
 session_start(); // mulai session
 require '../../function.php'; // menyisipkan file function.php agar bisa di pakai function2 yang ada didalamnya
 $conn = DBConnection(); // panggil functio DBConnection dan masukkan ke dalam variable $conn
-if(!isset($_SESSION['login'])){  // check jika user belum login
-    header('location:../../index.php'); // alihkan ke halaman index page
-    exit;
-  }
+isLogin();// panggil fungsi isLogin yang ada di file functions.php
 // tanggkap data masyarakat dengan fungsi FetchAllData yang sudah didefinisikan di function.php untuk mengambil data yang dikirimkan sebagai parameter dan masukkan dalam variable $petugas
 $masyarakat = FetchAllData("SELECT * FROM masyarakat");
 require('../layouts/header.php'); // memanggil layout header

@@ -1,10 +1,8 @@
 <?php
   session_start(); // mulai session
    require('../layouts/header.php');  //menyisipkan layout header 
-   if(!isset($_SESSION['login'])){ // check jika user belum login
-    header('location:../../index.php'); // alihkan ke index page / login
-    exit;
-  }
+   require '../../function.php'; // menyisipkan file function.php agar bisa di pakai function2 yang ada didalamnya
+   isLogin();// panggil fungsi isLogin yang ada di file functions.php
  ?>
 Dashboard
 <p>Info user login : <b><?= $_SESSION['username'];?></b></p>
