@@ -2,6 +2,7 @@
 session_start(); // mulai session
 require '../../function.php'; // menyisipkan file function.php agar bisa di pakai function2 yang ada didalamnya
 $conn = DBConnection(); // panggil functio DBConnection dan masukkan ke dalam variable $conn
+isPetugas();
 isLogin();// panggil fungsi isLogin yang ada di file functions.php
 if(isset($_POST['verify'])){ // check jika tombol verify sudah di submit
   $idpengaduan = $_POST['verify']; // tanggap id pengaduan yang dikirim 
@@ -13,7 +14,6 @@ if(isset($_POST['verify'])){ // check jika tombol verify sudah di submit
   $pengaduan = FetchAllData("SELECT * FROM pengaduan");
   require('../layouts/header.php'); // menyisipkan file layout header
 ?>
-
 <main role="main">
   <div>
     <h1 class="h2">Daftar Pengaduan :</h1>
@@ -49,10 +49,14 @@ if(isset($_POST['verify'])){ // check jika tombol verify sudah di submit
             <div><?= $status ;?></div>
           </td>
           <td>
+          <?php if(!$status == 'selesai') {?>
             <form action="" method="post">
               <button value="<?= $data['id_pengaduan'] ;?>" type="submit" "
                     name=" verify">Verifikasi Data</button>
             </form>
+            <?php }else{ ?>
+              <p>Pengaduan Sudah Ditanggapi</p>
+            <?php } ?>
           </td>
         </tr>
         <?php endforeach ;?>

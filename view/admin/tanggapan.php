@@ -3,6 +3,7 @@ session_start(); // mulai session
 require '../../function.php'; // menyisipkan file function.php agar bisa di pakai function2 yang ada didalamnya
 $conn = DBConnection(); // panggil functio DBConnection dan masukkan ke dalam variable
  isLogin();// panggil fungsi isLogin yang ada di file functions.php
+ isPetugas();
 $_idPetugas = $_SESSION['id_petugas']; // tangkap id_petugas dari session sudah ditambahakn/diset sebelumnya
 $_idPengaduan = $_SESSION['idpengaduan']; // tangkap id_pengaduan dari session sudah ditambahakn/diset sebelumnya
 

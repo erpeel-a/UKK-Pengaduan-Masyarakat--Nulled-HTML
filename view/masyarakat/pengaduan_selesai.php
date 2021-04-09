@@ -8,7 +8,7 @@ $pengaduan = FetchAllData("SELECT * FROM tanggapan T1 INNER JOIN pengaduan P1 ON
 
 require('../layouts/header.php'); // menyisipkan layout header
 ?>
-<h1 class="h2">Daftar Pengaduan :</h1>
+<h1 class="h2">Daftar Pengaduan Selesai:</h1>
 <table border="2">
   <thead>
     <tr>

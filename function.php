@@ -15,6 +15,22 @@ function isLogin()
     exit;
   }
 }
+// function yang digunakan untuk mengecek apakah yang login petugas (agar jika masyarakat yang login, kemudian mengakses halaman admin lalu akan diarahkan ke halaman login)
+function isPetugas()
+{
+  if($_SESSION['level'] !== 'admin' && $_SESSION['level'] !== 'petugas' ){ // cek jika user belum login
+    header('location:login.php'); // alihkan ke login.php
+    exit;
+  }
+}
+// function yang digunakan untuk mengecek apakah yang login mempunyai role admin (digunakan di cetak data laporan)
+function isRoleAdmin()
+{
+  if(!$_SESSION['level'] !== 'admin'){ // cek jika user belum login
+    header('location:index.php'); // alihkan ke login.php
+    exit;
+  }
+}
 
 // fungsi yang digunakan  untuk menampikan data sesuai query yang dikirim kan sebagai parameter
 function FetchAllData($query)

@@ -4,6 +4,7 @@ require '../../function.php'; // menyisipkan file function.php agar bisa di paka
 $conn = DBConnection(); // panggil functio DBConnection dan masukkan ke dalam variable $conn
 isLogin();// panggil fungsi isLogin yang ada di file functions.php
 // tanggkap data masyarakat dengan fungsi FetchAllData yang sudah didefinisikan di function.php untuk mengambil data yang dikirimkan sebagai parameter dan masukkan dalam variable $petugas
+isPetugas();
 $masyarakat = FetchAllData("SELECT * FROM masyarakat");
 require('../layouts/header.php'); // memanggil layout header
 ?>

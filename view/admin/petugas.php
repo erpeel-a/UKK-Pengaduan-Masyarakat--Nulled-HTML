@@ -3,9 +3,9 @@ session_start(); // memulai session
 require '../../function.php'; // menyisipkan file function.php agar bisa digunakan function2nya
 $conn = DBConnection(); // panggil function DBConnection dari file function.php
 isLogin();// panggil fungsi isLogin yang ada di file functions.php
+isPetugas(); 
   // tanggkap data petugas dengan fungsi FetchAllData yang sudah didefinisikan di function.php untuk mengambil data yang dikirimkan sebagai parameter dan masukkan dalam variable $petugas
 $petugas = FetchAllData("SELECT * FROM petugas"); 
-
 require('../layouts/header.php');
 ?>
     <main role="main" >
@@ -33,6 +33,5 @@ require('../layouts/header.php');
           </tbody>
         </table>
         <a href="index.php" >kembali</a>
-      </div>
     </main>
 <?php require('../layouts/footer.php'); ?>
