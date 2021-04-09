@@ -18,6 +18,7 @@ $conn = DBConnection(); // memanggil fungsi DBConnection dari file function.php
           $_SESSION['login'] = true;
           $_SESSION['nik'] = $data['nik'];
           $_SESSION['username'] = $data['username'];  
+          $_SESSION['level'] = 'masyarakat';  
           // redirect ke halaman masyarakat index
           header('location:index.php');
           exit;

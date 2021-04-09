@@ -19,7 +19,7 @@ function isLogin()
 function isPetugas()
 {
   if($_SESSION['level'] !== 'admin' && $_SESSION['level'] !== 'petugas' ){ // cek jika user belum login
-    header('location:login.php'); // alihkan ke login.php
+    header('location:../logout.php'); // alihkan ke login.php
     exit;
   }
 }
@@ -28,6 +28,15 @@ function isRoleAdmin()
 {
   if(!$_SESSION['level'] !== 'admin'){ // cek jika user belum login
     header('location:index.php'); // alihkan ke login.php
+    exit;
+  }
+}
+
+// function untuk mengecek jika admin iseng masuk ke masyarakat
+function isMasyarakat()
+{
+  if($_SESSION['level'] !== 'masyarakat'){ // cek jika user belum login
+    header('location:../logout.php');
     exit;
   }
 }

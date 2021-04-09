@@ -40,7 +40,7 @@ require('../layouts/header.php'); // menyisipkan file layout header
   </div>
   <div>
     <button type="submit" name="submit">Login</button>
-    <a href="../../index.php">Login Sebagai Masyarakat</a>
+    <a href="<?= site_url ?>/view/masyarakat/login.php">Login Sebagai Masyarakat</a>
   </div>
 </form>
 <?php require('../layouts/footer.php')  // menyisipkan file layout header  ?>

@@ -6,8 +6,6 @@ isLogin();// panggil fungsi isLogin yang ada di file functions.php
 isRoleAdmin(); // panggil fungsi isRoleAdmin yang digunakan untuk mengecek petugas yang rolenya admin
 // tangkap data tanggapan dengan fungsi FetchAllData yang sudah didefinisikan di function.php untuk mengambil data yang dikirimkan sebagai parameter dan masukkan dalam vaiable $laporan
 $laporan = FetchAllData("SELECT *  FROM pengaduan P1  INNER JOIN masyarakat M1 ON P1.nik=M1.nik WHERE NOT P1.status='0'");
-// var_dump($laporan);
-// echo json_encode($laporan)
 ?>
 <?php require('../layouts/header.php')  ?>
 <!DOCTYPE html>

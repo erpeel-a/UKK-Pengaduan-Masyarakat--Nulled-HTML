@@ -3,6 +3,7 @@ session_start();
 require '../../function.php'; //menyisipkan file function
 require('../layouts/header.php'); // menyisipkan file layuot header.php
 isLogin();
+isMasyarakat();
 ?>
   Dashboard Home <br> info user login <strong><?= $_SESSION['username'] ?></strong>
   <a href="pengaduan_selesai.php">Daftar Pengaduan yang ditanggapi</a>
