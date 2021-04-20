@@ -17,5 +17,4 @@ Dashboard
   <a href="Masyarakat.php">Data Masyarakat</a>
   <a href="pengaduan.php">Data Pengaduan</a>
   <a href="../logout.php">Logout</a>
-
 <?php require('../layouts/footer.php') ?>

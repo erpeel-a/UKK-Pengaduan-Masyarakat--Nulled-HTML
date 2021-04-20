@@ -1,9 +1,7 @@
 <?php 
-
 session_start(); // mulai session
 require('../../function.php'); // menyisipkan fle function.php
 $conn = DBConnection(); // memanggil fungsi DBConnection dari file function.php
-
   if(isset($_POST['submit'])){ // cck jika tombol login sudah di submit
     //dapatkan data dari inputan form  berupa username dan password
     $username = $_POST['username'];
